@@ -8,11 +8,11 @@ heap: List[Any] = []  #Zeitpunkt, Prio, Nr, Funktion
 counter = itertools.count()
 
 # Output Text Declare
-customerDoc = open('supermarkt_customer.txt', 'w') 
+UserDoc = open('supermarkt_customer.txt', 'w') 
 stationDoc = open('supermarkt_station.txt', 'w') 
 supermarktDoc = open('supermarkt.txt', 'w') 
 
-print("Test", file=customerDoc)
+# print("Test", file=UserDoc)
 
 
 
@@ -52,13 +52,13 @@ Theken.append(Station(30, [], "Wurst"))
 Theken.append(Station(5, [], "Kasse"))
 
 
-class Customer:
-    def __init__(self, Kundeninformation, Name = ""):
+class User:
+    def __init__(self, TypInformation, Name = ""):
         self.Name = Name
         self.Position = -1
-        self.Laufen = Kundeninformation[0]
-        self.WarteschlangeMax = Kundeninformation[1]
-        self.KaufeAnzahl: int = Kundeninformation[2]
+        self.Laufen = TypInformation[0]
+        self.WarteschlangeMax = TypInformation[1]
+        self.KaufeAnzahl: int = TypInformation[2]
 
     def anzahlDerEinkaeufe(self):
         return len(self.Laufen)
@@ -90,114 +90,113 @@ class Ordering:
 class Supermarkt:
     AnzahlDerKunden = 0
     Zeit = 0
-    T1 = 200
-    T2 = 60
+    A = 200
+    B = 60
 
-    #Kundeninfo: 4xLaufweg, 4xMaxWarteschlabnge, 4xMengeArtikel.
+    #TypInfo: 4xLaufweg, 4xMaxWarteschlabnge, 4xMengeArtikel.
     #Baecker, Kaese, Wurst, Kasse
-    KundeninfoTypEins = ([10, 30, 45, 60], [11, 11, 6, 21], [10, 5, 3, 30])
+    TypInfoA = ([10, 30, 45, 60], [11, 11, 6, 21], [10, 5, 3, 30])
 
-    #Kundeninfo: 3xLaufweg, 3xMaxWarteschlabnge, 3xMengeArtikel.
+    #TypInfo: 3xLaufweg, 3xMaxWarteschlabnge, 3xMengeArtikel.
     #Wurst, Kasse, Baecker
-    KundeninfoTypZwei = ([30, 30, 20], [6, 21, 21], [2, 3, 3])
+    TypInfoB = ([30, 30, 20], [6, 21, 21], [2, 3, 3])
 
     def start(self):
         #init 10 Kunden von Typ1 und 30 Kunden von Typ2
-        CustomerT1_1 = Customer(self.KundeninfoTypEins, "T1_1")
-        CustomerT2_1 = Customer(self.KundeninfoTypZwei, "T2_1")
-        CustomerT1_2 = Customer(self.KundeninfoTypEins, "T1_2")
-        CustomerT2_2 = Customer(self.KundeninfoTypZwei, "T2_2")
-        CustomerT1_3 = Customer(self.KundeninfoTypEins, "T1_3")
-        CustomerT2_3 = Customer(self.KundeninfoTypZwei, "T2_3")
-        CustomerT1_4 = Customer(self.KundeninfoTypEins, "T1_4")
-        CustomerT2_4 = Customer(self.KundeninfoTypZwei, "T2_4")
-        CustomerT1_5 = Customer(self.KundeninfoTypEins, "T1_5")
-        CustomerT2_5 = Customer(self.KundeninfoTypZwei, "T2_5")
+        UserA1 = User(self.TypInfoA, "A1")
+        UserA1 = User(self.TypInfoB, "A1")
+        UserA2 = User(self.TypInfoA, "A2")
+        UserA2 = User(self.TypInfoB, "A2")
+        UserA3 = User(self.TypInfoA, "A3")
+        UserA3 = User(self.TypInfoB, "A3")
+        UserA4 = User(self.TypInfoA, "A4")
+        UserA4 = User(self.TypInfoB, "A4")
+        UserA5 = User(self.TypInfoA, "A5")
+        UserA5 = User(self.TypInfoB, "A5")
 
-        CustomerT1_6 = Customer(self.KundeninfoTypEins, "T1_6")
-        CustomerT2_6 = Customer(self.KundeninfoTypZwei, "T2_6")
-        CustomerT1_7 = Customer(self.KundeninfoTypEins, "T1_7")
-        CustomerT2_7 = Customer(self.KundeninfoTypZwei, "T2_7")
-        CustomerT1_8 = Customer(self.KundeninfoTypEins, "T1_8")
-        CustomerT2_8 = Customer(self.KundeninfoTypZwei, "T2_8")
-        CustomerT1_9 = Customer(self.KundeninfoTypEins, "T1_9")
-        CustomerT2_9 = Customer(self.KundeninfoTypZwei, "T2_9")
-        CustomerT1_10 = Customer(self.KundeninfoTypEins, "T1_10")
-        CustomerT2_10 = Customer(self.KundeninfoTypZwei, "T2_10")
+        UserA6 = User(self.TypInfoA, "A6")
+        UserA6 = User(self.TypInfoB, "A6")
+        UserA7 = User(self.TypInfoA, "A7")
+        UserA7 = User(self.TypInfoB, "A7")
+        UserA8 = User(self.TypInfoA, "A8")
+        UserA8 = User(self.TypInfoB, "A8")
+        UserA9 = User(self.TypInfoA, "A9")
+        UserA9 = User(self.TypInfoB, "A9")
+        UserA10 = User(self.TypInfoA, "A10")
+        UserA10 = User(self.TypInfoB, "A10")
 
-        CustomerT2_11 = Customer(self.KundeninfoTypZwei, "T2_11")
-        CustomerT2_12 = Customer(self.KundeninfoTypZwei, "T2_12")
-        CustomerT2_13 = Customer(self.KundeninfoTypZwei, "T2_13")
-        CustomerT2_14 = Customer(self.KundeninfoTypZwei, "T2_14")
-        CustomerT2_15 = Customer(self.KundeninfoTypZwei, "T2_15")
-        CustomerT2_16 = Customer(self.KundeninfoTypZwei, "T2_16")
-        CustomerT2_17 = Customer(self.KundeninfoTypZwei, "T2_17")
-        CustomerT2_18 = Customer(self.KundeninfoTypZwei, "T2_18")
-        CustomerT2_19 = Customer(self.KundeninfoTypZwei, "T2_19")
-        CustomerT2_20 = Customer(self.KundeninfoTypZwei, "T2_20")
+        UserA11 = User(self.TypInfoB, "A11")
+        UserA12 = User(self.TypInfoB, "A12")
+        UserA13 = User(self.TypInfoB, "A13")
+        UserA14 = User(self.TypInfoB, "A14")
+        UserA15 = User(self.TypInfoB, "A15")
+        UserA16 = User(self.TypInfoB, "A16")
+        UserA17 = User(self.TypInfoB, "A17")
+        UserA18 = User(self.TypInfoB, "A18")
+        UserA19 = User(self.TypInfoB, "A19")
+        UserA20 = User(self.TypInfoB, "A20")
 
-        CustomerT2_21 = Customer(self.KundeninfoTypZwei, "T2_21")
-        CustomerT2_22 = Customer(self.KundeninfoTypZwei, "T2_22")
-        CustomerT2_23 = Customer(self.KundeninfoTypZwei, "T2_23")
-        CustomerT2_24 = Customer(self.KundeninfoTypZwei, "T2_24")
-        CustomerT2_25 = Customer(self.KundeninfoTypZwei, "T2_25")
-        CustomerT2_26 = Customer(self.KundeninfoTypZwei, "T2_26")
-        CustomerT2_27 = Customer(self.KundeninfoTypZwei, "T2_27")
-        CustomerT2_28 = Customer(self.KundeninfoTypZwei, "T2_28")
-        CustomerT2_29 = Customer(self.KundeninfoTypZwei, "T2_29")
-        CustomerT2_30 = Customer(self.KundeninfoTypZwei, "T2_30")
+        UserA21 = User(self.TypInfoB, "A21")
+        UserA22 = User(self.TypInfoB, "A22")
+        UserA23 = User(self.TypInfoB, "A23")
+        UserA24 = User(self.TypInfoB, "A24")
+        UserA25 = User(self.TypInfoB, "A25")
+        UserA26 = User(self.TypInfoB, "A26")
+        UserA27 = User(self.TypInfoB, "A27")
+        UserA28 = User(self.TypInfoB, "A28")
+        UserA29 = User(self.TypInfoB, "A29")
+        UserA30 = User(self.TypInfoB, "A30")
 
         #alle Kunden auf den heap setzen.
-        add_task(0, CustomerT1_1, walk, [0, 2, 1, 3])
-        add_task(200, CustomerT1_2, walk, [0, 2, 1, 3])
-        add_task(400, CustomerT1_3, walk, [0, 2, 1, 3])
-        add_task(600, CustomerT1_4, walk, [0, 2, 1, 3])
-        add_task(800, CustomerT1_5, walk, [0, 2, 1, 3])
-        add_task(1000, CustomerT1_6, walk, [0, 2, 1, 3])
-        add_task(1200, CustomerT1_7, walk, [0, 2, 1, 3])
-        add_task(1400, CustomerT1_8, walk, [0, 2, 1, 3])
-        add_task(1600, CustomerT1_9, walk, [0, 2, 1, 3])
-        add_task(1800, CustomerT1_10, walk, [0, 2, 1, 3])
+        add_Task(0, UserA1, walk, [0, 2, 1, 3])
+        add_Task(200, UserA2, walk, [0, 2, 1, 3])
+        add_Task(400, UserA3, walk, [0, 2, 1, 3])
+        add_Task(600, UserA4, walk, [0, 2, 1, 3])
+        add_Task(800, UserA5, walk, [0, 2, 1, 3])
+        add_Task(1000, UserA6, walk, [0, 2, 1, 3])
+        add_Task(1200, UserA7, walk, [0, 2, 1, 3])
+        add_Task(1400, UserA8, walk, [0, 2, 1, 3])
+        add_Task(1600, UserA9, walk, [0, 2, 1, 3])
+        add_Task(1800, UserA10, walk, [0, 2, 1, 3])
 
-        add_task(1, CustomerT2_1, walk, [2, 3, 0])
-        add_task(61, CustomerT2_2, walk, [2, 3, 0])
-        add_task(121, CustomerT2_3, walk, [2, 3, 0])
-        add_task(181, CustomerT2_4, walk, [2, 3, 0])
-        add_task(241, CustomerT2_5, walk, [2, 3, 0])
-        add_task(301, CustomerT2_6, walk, [2, 3, 0])
-        add_task(361, CustomerT2_7, walk, [2, 3, 0])
-        add_task(421, CustomerT2_8, walk, [2, 3, 0])
-        add_task(481, CustomerT2_9, walk, [2, 3, 0])
-        add_task(541, CustomerT2_10, walk, [2, 3, 0])
-        add_task(601, CustomerT2_11, walk, [2, 3, 0])
-        add_task(661, CustomerT2_12, walk, [2, 3, 0])
-        add_task(721, CustomerT2_13, walk, [2, 3, 0])
-        add_task(781, CustomerT2_14, walk, [2, 3, 0])
-        add_task(841, CustomerT2_15, walk, [2, 3, 0])
+        add_Task(1, UserA1, walk, [2, 3, 0])
+        add_Task(61, UserA2, walk, [2, 3, 0])
+        add_Task(121, UserA3, walk, [2, 3, 0])
+        add_Task(181, UserA4, walk, [2, 3, 0])
+        add_Task(241, UserA5, walk, [2, 3, 0])
+        add_Task(301, UserA6, walk, [2, 3, 0])
+        add_Task(361, UserA7, walk, [2, 3, 0])
+        add_Task(421, UserA8, walk, [2, 3, 0])
+        add_Task(481, UserA9, walk, [2, 3, 0])
+        add_Task(541, UserA10, walk, [2, 3, 0])
+        add_Task(601, UserA11, walk, [2, 3, 0])
+        add_Task(661, UserA12, walk, [2, 3, 0])
+        add_Task(721, UserA13, walk, [2, 3, 0])
+        add_Task(781, UserA14, walk, [2, 3, 0])
+        add_Task(841, UserA15, walk, [2, 3, 0])
 
-        add_task(901, CustomerT2_16, walk, [2, 3, 0])
-        add_task(961, CustomerT2_17, walk, [2, 3, 0])
-        add_task(1021, CustomerT2_18, walk, [2, 3, 0])
-        add_task(1081, CustomerT2_19, walk, [2, 3, 0])
-        add_task(1141, CustomerT2_20, walk, [2, 3, 0])
-        add_task(1201, CustomerT2_21, walk, [2, 3, 0])
-        add_task(1261, CustomerT2_22, walk, [2, 3, 0])
-        add_task(1321, CustomerT2_23, walk, [2, 3, 0])
-        add_task(1381, CustomerT2_24, walk, [2, 3, 0])
-        add_task(1441, CustomerT2_25, walk, [2, 3, 0])
-        add_task(1501, CustomerT2_26, walk, [2, 3, 0])
-        add_task(1561, CustomerT2_27, walk, [2, 3, 0])
-        add_task(1621, CustomerT2_28, walk, [2, 3, 0])
-        add_task(1681, CustomerT2_29, walk, [2, 3, 0])
-        add_task(1741, CustomerT2_30, walk, [2, 3, 0])
-
+        add_Task(901, UserA16, walk, [2, 3, 0])
+        add_Task(961, UserA17, walk, [2, 3, 0])
+        add_Task(1021, UserA18, walk, [2, 3, 0])
+        add_Task(1081, UserA19, walk, [2, 3, 0])
+        add_Task(1141, UserA20, walk, [2, 3, 0])
+        add_Task(1201, UserA21, walk, [2, 3, 0])
+        add_Task(1261, UserA22, walk, [2, 3, 0])
+        add_Task(1321, UserA23, walk, [2, 3, 0])
+        add_Task(1381, UserA24, walk, [2, 3, 0])
+        add_Task(1441, UserA25, walk, [2, 3, 0])
+        add_Task(1501, UserA26, walk, [2, 3, 0])
+        add_Task(1561, UserA27, walk, [2, 3, 0])
+        add_Task(1621, UserA28, walk, [2, 3, 0])
+        add_Task(1681, UserA29, walk, [2, 3, 0])
+        add_Task(1741, UserA30, walk, [2, 3, 0])
 
         self.EventHandler()
 
     def EventHandler(self):
         while(heap):
             #hol den nachsten kunden von der heapqueue
-            Zeit, Prio, count, Kunde, func, order = heappop(heap)
+            Zeit, Kunde, func, order, Prio, count = heappop(heap)    #
             #arbeite die aktion des kunden ab(laufen/kaufen/warten)
             tZeit, tfunc = func(Kunde, order)
 
@@ -207,11 +206,11 @@ class Supermarkt:
                 Zeit = Zeit + tZeit
                 #print(Kunde.Name ,Zeit, tfunc)
                 #setze den kunden wieder auf die heapque
-                add_task(Zeit, Kunde, tfunc, order)
+                add_Task(Zeit, Kunde, tfunc, order)
                 # "debug" pfusch am bau
                 if(tfunc != wait):
-                    print(Zeit - tZeit, Prio, count,  Kunde.Name, tfunc)
-            else:
+                    print(Zeit - tZeit, ":", Kunde.Name, tfunc, Prio, count) #  
+            else:# Fertige Kunden
                 print(Kunde.Name ,Zeit + tZeit, tZeit, tfunc)
                 end(Kunde, order)
 
@@ -228,11 +227,11 @@ class Supermarkt:
     #        print("Drop percentage at Kasse     : " + str(), file=supermarktDoc)
 
             # Closing Writing Streams from Statistic Documents
-            customerDoc.close
+            UserDoc.close
             stationDoc.close
             supermarktDoc.close
 
-def add_task(Zeit, Kundeninfo, tfunc, order):
+def add_Task(Zeit, TypInfo, tfunc, order):
     count = next(counter)
     Prio = 3
     if(tfunc == walk):
@@ -241,8 +240,8 @@ def add_task(Zeit, Kundeninfo, tfunc, order):
         Prio = 2
     else:
         Prio = 1
-    eantry = [Zeit, Prio, count, Kundeninfo, tfunc, order]
-    #print(Kundeninfo.Name, tfunc)
+    eantry = [Zeit, Prio, count, TypInfo, tfunc, order]
+    #print(TypInfo.Name, tfunc)
     heappush(heap, eantry)
 
 #############################################################
