@@ -203,7 +203,6 @@ class Supermarkt:
             tZeit, tfunc, msg = func(Kunde, order)
             if(msg != ""):
                 UserDoc.write(str(Zeit) + ":" + msg + "\n")
-                UserDoc.write(str(Theken[0].Warteschlange) + "\n")
                 print(Theken[0].Warteschlange)
             #kunde nur in die queue wieder reinsetzten wenn func nicht end ist
             if(tfunc != leave):
