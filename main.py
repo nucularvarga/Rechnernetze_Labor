@@ -317,6 +317,7 @@ def service(Kunde, order):
         #print(Kunde.Name, Theken[order[Kunde.getPosition()]].Dauer ,tmp, Theken[order[Kunde.getPosition()]].Name)
         return tmp, walk, ""
 
+
 #############################################################
 #           Programmstart! supermarkt wird geoefnnet        #
 #############################################################
